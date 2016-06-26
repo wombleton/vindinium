@@ -173,10 +173,11 @@ class VinPlayer():
         y = 4
         for (s1, s2) in zip(s[0::2], s[1::2]):
             tile = s1 + s2
+
             if tile == '@' + str(player):
                 state[y][x] = 12. / count
             elif tile == '$' + str(player):
-                state[y][x] = 12. / count
+                state[y][x] = 13. / count
             else:
                 state[y][x] = tokens[tile]
             x += 1
