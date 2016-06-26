@@ -182,7 +182,7 @@ class VinFlow():
             if tile == '@' + str(player):
                 state[y][x] = 12. / count
             elif tile == '$' + str(player):
-                state[y][x] = 12. / count
+                state[y][x] = 13. / count
             else:
                 state[y][x] = tokens[tile]
             x += 1
