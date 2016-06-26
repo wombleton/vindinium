@@ -157,20 +157,17 @@ class VinFlow():
         state = np.full((VinFlow.SCREEN_Y + 4, VinFlow.SCREEN_X), 1.)
         hero_index = 1
         for hero in move["heroes"]:
-            hero_line = [hero["life"] / 100, hero["gold"] / 10000, hero["mineCount"] / 100]
             if hero["id"] == player:
-                score = hero["gold"]
-
                 last_dir = hero.get("lastDir", "Stay")
                 last_action[self.ACTIONS.index(last_dir)] = 1
 
-                state[0][0] = hero["life"] / 100
-                state[0][1] = hero["gold"] / 10000
-                state[0][2] = hero["mineCount"] / 100
+                state[0][0] = hero["life"] / 100.
+                state[0][1] = hero["gold"] / 10000.
+                score = state[0][2] = hero["mineCount"] / 100.
             else:
-                state[hero_index][0] = hero["life"] / 100
-                state[hero_index][1] = hero["gold"] / 10000
-                state[hero_index][2] = hero["mineCount"] / 100
+                state[hero_index][0] = hero["life"] / 100.
+                state[hero_index][1] = hero["gold"] / 10000.
+                state[hero_index][2] = hero["mineCount"] / 100.
                 hero_index += 1
 
         size = move["board"]["size"]
