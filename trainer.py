@@ -9,7 +9,7 @@ class VinFlow():
     ACTIONS = ["North", "South", "East", "West", "Stay"]
     ACTIONS_COUNT = 5  # number of valid actions.
     FUTURE_REWARD_DISCOUNT = 0.99  # decay rate of past observations
-    MEMORY_SIZE = 100000  # number of observations to remember
+    MEMORY_SIZE = 50000  # number of observations to remember
     MINI_BATCH_SIZE = 100  # size of mini batches
     STATE_FRAMES = 4 # number of frames to store in the state
     SCREEN_X, SCREEN_Y = (80, 80)
