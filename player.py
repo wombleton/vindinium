@@ -43,10 +43,15 @@ class VinPlayer():
 
         self._read_game()
 
-        mini_batch = random.sample(self._observations, 1)
-        state, _, _, _, _ = mini_batch[0]
-        readout = self._session.run(self._output_layer, feed_dict={self._input_layer: [state]})
-        print readout
+        mini_batch = random.sample(self._observations, 100)
+
+        for play in mini_batch:
+            _, _, _, state, _ = play
+            readout = self._session.run(self._output_layer, feed_dict={self._input_layer: [state]})
+            action_index = np.argmax(readout)
+
+            import pdb; pdb.set_trace()
+            print self.ACTIONS[action_index]
 
     @staticmethod
     def _create_network():
