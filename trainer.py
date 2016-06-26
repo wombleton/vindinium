@@ -130,7 +130,7 @@ class VinFlow():
         self._session.run(self._train_operation, feed_dict={
             self._input_layer: previous_states,
             self._action: actions,
-            self._target: agents_expected_reward})
+            self._target: rewards})
 
         # save checkpoints for later
         if self._time % self.SAVE_EVERY_X_STEPS == 0:
